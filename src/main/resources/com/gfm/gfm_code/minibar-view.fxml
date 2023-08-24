@@ -1,16 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.gfm.gfm_code.MinibarController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="633.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gfm.gfm_code.MinibarController">
+   <children>
+      <ScrollPane layoutY="123.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="960.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="2000.0" prefWidth="940.0">
+               <children>
+                  <Label fx:id="grammarLabel" layoutX="14.0" layoutY="40.0" text="Grammar:" />
+                  <ComboBox fx:id="fromBox" layoutX="623.0" layoutY="36.0" prefHeight="25.0" prefWidth="82.0" />
+                  <Label layoutX="256.0" layoutY="41.0" text="Startcat:" />
+                  <ComboBox fx:id="startcatBox" layoutX="314.0" layoutY="36.0" prefWidth="150.0" />
+                  <Label layoutX="485.0" layoutY="41.0" text="Translation:" />
+                  <Label layoutX="577.0" layoutY="41.0" text="From:" />
+                  <Label layoutX="731.0" layoutY="40.0" text="To:" />
+                  <ComboBox fx:id="toBox" layoutX="759.0" layoutY="36.0" prefHeight="25.0" prefWidth="82.0" />
+                  <ComboBox fx:id="grammarBox" layoutX="83.0" layoutY="35.0" prefWidth="150.0" />
+                  <TextField fx:id="inputArea" layoutX="124.0" layoutY="77.0" prefHeight="25.0" prefWidth="633.0" />
+                  <TextArea fx:id="predictionArea" layoutX="122.0" layoutY="109.0" prefHeight="61.0" prefWidth="637.0" />
+                  <Button fx:id="deleteButton" layoutX="773.0" layoutY="74.0" minWidth="53.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="53.0" text="Delete" />
+                  <Label layoutX="28.0" layoutY="81.0" text="Input" />
+                  <Label fx:id="predictedLabel" layoutX="9.0" layoutY="131.0" text="Predicted Words" />
+                  <Label fx:id="translationLabel" layoutX="24.0" layoutY="225.0" text="Translation" />
+                  <Button fx:id="shrinkButton" layoutX="773.0" layoutY="194.0" mnemonicParsing="false" onAction="#shrinkTranslation" text="Shrink" />
+                  <ScrollPane fx:id="translationPane" layoutX="116.0" layoutY="194.0" prefHeight="200.0" prefWidth="650.0">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="630.0">
+                           <children>
+                              <TextArea fx:id="translationArea" layoutX="-4.0" prefHeight="500.0" prefWidth="634.0" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
+                  <Button fx:id="expandButton" layoutX="841.0" layoutY="194.0" mnemonicParsing="false" onAction="#expandTranslation" text="Expand" />
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <ImageView fx:id="logo" fitHeight="119.0" fitWidth="121.0" layoutX="421.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:/C:/Users/2002m/IdeaProjects/GFM/gf1.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
