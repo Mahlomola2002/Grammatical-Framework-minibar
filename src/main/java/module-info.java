@@ -5,7 +5,10 @@ module com.gfm.gfm {
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
     requires org.kordamp.ikonli.javafx;
+    requires java.desktop;
+
 
     opens com.gfm.gfm_code to javafx.fxml;
     exports com.gfm.gfm_code;
+
 }

@@ -1,0 +1,5 @@
+i -src testsuite/compiler/typecheck/abstract/LitAbs.gf
+ai empty
+ai other
+ai zero
+ai pi

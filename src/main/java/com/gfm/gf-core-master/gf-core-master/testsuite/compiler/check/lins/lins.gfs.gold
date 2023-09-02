@@ -1,0 +1,41 @@
+abstract lins {
+  cat C Nat ;
+  cat Float ;
+  cat Int ;
+  cat Nat ;
+  cat String ;
+  fun test : C zero ;
+  fun zero : Nat ;
+}
+concrete linsCnc {
+  productions
+    C1 -> F4[]
+  lindefs
+    C0 -> F0[CVar]
+    C1 -> F2[CVar]
+  linrefs
+    CVar -> F1[C0]
+    CVar -> F3[C1]
+  lin
+    F0 := (S2) ['lindef C']
+    F1 := (S1) ['lindef C']
+    F2 := () ['lindef Nat']
+    F3 := (S0) ['lindef Nat']
+    F4 := () [zero]
+  sequences
+    S0 :=
+    S1 := <0,0>
+    S2 := {0,0}
+  categories
+    C := range  [C0 .. C0]
+         labels ["s"]
+    Float := range  [CFloat .. CFloat]
+             labels ["s"]
+    Int := range  [CInt .. CInt]
+           labels ["s"]
+    Nat := range  [C1 .. C1]
+           labels []
+    String := range  [CString .. CString]
+              labels ["s"]
+  printnames
+}

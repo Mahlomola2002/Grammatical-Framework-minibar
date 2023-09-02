@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>GF - Grammatical Framework</title>
+  <meta name="keywords" content="machine translation">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" crossorigin="anonymous">
+
+  <link rel="alternate" href="https://github.com/GrammaticalFramework/gf-core/" title="GF GitHub repository">
+</head>
+
+<body>
+<div class="container-fluid my-5" style="max-width:1200px">
+
+<div class="text-center">
+  <img style="height:250px" src="doc/Logos/gf1.svg" alt="GF Logo">
+  <h1 class="display-4" style="text-shadow: 1px 1px 5px #999;">Grammatical Framework</h1>
+  <h4 class="text-black-50">A programming language for multilingual grammar applications</h4>
+</div>
+
+<div class="row mt-4">
+
+  <div class="col-sm-6 col-md-3 mb-4">
+    <h3>Get started</h3>
+    <ul class="mb-2">
+      <li><a href="https://www.youtube.com/watch?v=x1LFbDQhbso">Google Tech Talk</a></li>
+      <li>
+        <a href="//cloud.grammaticalframework.org/">
+          GF Cloud
+          <img src="src/www/P/gf-cloud.png" style="height:30px" class="ml-2" alt="Cloud logo">
+        </a>
+      </li>
+      <li>
+        <a href="doc/tutorial/gf-tutorial.html">Tutorial</a>
+        /
+        <a href="lib/doc/rgl-tutorial/index.html">RGL Tutorial</a>
+      </li>
+      <li><a href="doc/gf-video-tutorials.html">Video Tutorials</a></li>
+    </ul>
+
+    <a href="download/index.html" class="btn btn-primary ml-3">
+      <i class="fas fa-download mr-1"></i>
+      Download GF
+    </a>
+  </div>
+
+  <div class="col-sm-6 col-md-3 mb-4">
+    <h3>Learn more</h3>
+
+    <ul class="mb-2">
+      <li><a href="gf-book">The GF Book</a></li>
+      <li><a href="doc/gf-refman.html">Reference Manual</a></li>
+      <li><a href="doc/gf-shell-reference.html">Shell Reference</a></li>
+      <li><a href="http://www.molto-project.eu/sites/default/files/MOLTO_D2.3.pdf">Best Practices</a> <small>[PDF]</small></li>
+      <li><a href="https://www.mitpressjournals.org/doi/pdf/10.1162/COLI_a_00378">Scaling Up (Computational Linguistics 2020)</a></li>
+      <li><a href="https://inariksit.github.io/blog/">GF blog</a></li>
+    </ul>
+
+    <a href="lib/doc/synopsis/index.html" class="btn btn-primary ml-3">
+      <i class="fab fa-readme mr-1"></i>
+      RGL Synopsis
+    </a>
+  </div>
+
+  <div class="col-sm-6 col-md-3 mb-4">
+    <h3>Develop</h3>
+    <ul class="mb-2">
+      <li><a href="doc/gf-developers.html">Developers Guide</a></li>
+      <!-- <li><a href="/~hallgren/gf-experiment/browse/">Browse Source Code</a></li> -->
+      <li>PGF library API:<br>
+        <a href="http://hackage.haskell.org/package/gf/docs/PGF.html">Haskell</a> /
+        <a href="doc/runtime-api.html">C&nbsp;runtime</a>
+      </li>
+      <li><a href="http://hackage.haskell.org/package/gf/docs/GF.html">GF compiler API</a></li>
+      <!-- <li><a href="src/ui/android/README">GF on Android (new)</a></li>
+      <li><a href="/android/">GF on Android (old) </a></li> -->
+      <li><a href="doc/gf-editor-modes.html">Text Editor Support</a></li>
+      <li><a href="http://www.grammaticalframework.org/~john/rgl-browser/">RGL source browser</a></li>
+    </ul>
+  </div>
+
+  <div class="col-sm-6 col-md-3 mb-4">
+    <h3>Contribute</h3>
+    <ul class="mb-2">
+      <li>
+        <a href="https://web.libera.chat/?channels=#gf">
+          <i class="fas fa-hashtag"></i>
+          IRC
+        </a>
+        /
+        <a href="https://discord.gg/EvfUsjzmaz">
+          <i class="fab fa-discord"></i>
+          Discord
+        </a>
+      </li>
+      <li>
+        <a href="https://stackoverflow.com/questions/tagged/gf">
+          <i class="fab fa-stack-overflow"></i>
+          Stack Overflow
+        </a>
+      </li>
+      <li><a href="https://groups.google.com/group/gf-dev">Mailing List</a></li>
+      <li><a href="https://github.com/GrammaticalFramework/gf-core/issues">Issue Tracker</a></li>
+      <li><a href="//school.grammaticalframework.org/">Summer School</a></li>
+      <li><a href="doc/gf-people.html">Authors</a></li>
+    </ul>
+    <a href="https://github.com/GrammaticalFramework/" class="btn btn-primary ml-3">
+      <i class="fab fa-github mr-1"></i>
+        GF on GitHub
+    </a>
+  </div>
+
+</div>
+
+<h2>What is GF?</h2>
+<p>
+GF, Grammatical Framework, is a programming language for
+<strong>multilingual grammar applications</strong>. It is
+</p>
+<ul>
+<li>a <strong>special-purpose language for grammars</strong>, like
+  <a href="http://dinosaur.compilertools.net/yacc/">YACC</a>,
+  <a href="http://www.gnu.org/software/bison/">Bison</a>,
+  <a href="http://www.haskell.org/happy/">Happy</a>,
+  <a href="http://bnfc.digitalgrammars.com/">BNFC</a>,
+  but not restricted to programming languages
+</li>
+<li>a <strong>functional programming language</strong>, like
+  <a href="http://www.haskell.org/">Haskell</a>,
+  <a href="http://en.wikipedia.org/wiki/Lisp_(programming_language)">Lisp</a>,
+  <a href="http://ocaml.org/">OCaml</a>,
+  <a href="http://www.smlnj.org/">SML</a>,
+  <a href="http://schemers.org/">Scheme</a>,
+  but specialized to grammar writing
+</li>
+<li>a <strong>development platform for natural language grammars</strong>, like
+  <a href="http://moin.delph-in.net/LkbTop">LKB</a>,
+  <a href="http://www2.parc.com/isl/groups/nltt/xle/">XLE</a>,
+  <a href="http://www.issco.unige.ch/en/research/projects/regulus/news.shtml">Regulus</a>,
+  but based on functional programming and type theory
+</li>
+<li>a <strong>categorial grammar formalism</strong>, like
+  <a href="http://www.loria.fr/equipes/calligramme/acg/">ACG</a>,
+  <a href="http://openccg.sourceforge.net/">CCG</a>,
+  but specialized for multilingual grammars,
+</li>
+<li>a <strong>logical framework</strong>, like
+  <a href="http://wiki.portal.chalmers.se/agda/pmwiki.php">Agda</a>,
+  <a href="http://coq.inria.fr/">Coq</a>,
+  <a href="http://www.cl.cam.ac.uk/research/hvg/Isabelle/">Isabelle</a>,
+  but equipped with concrete syntax in addition to logic
+</li>
+<li>a <strong>platform for machine translation</strong>, like
+  <a href="http://www.statmt.org/moses/">Moses</a>,
+  <a href="http://www.apertium.org/">Apertium</a>,
+  but based on deep structural analysis (and usually applied for
+  limited fragments of language).
+</li>
+</ul>
+
+<p>
+Don't worry if you don't know most of the references above - but if you do know at
+least one, it may help you to get a first idea of what GF is.
+</p>
+
+<hr>
+
+<div class="row">
+
+  <div class="col-md-6">
+    <h2>Applications & availability</h2>
+    <p>
+    GF can be used for building
+    <a href="//cloud.grammaticalframework.org/translator/">translation systems</a>,
+    <a href="//cloud.grammaticalframework.org/minibar/minibar.html">multilingual web gadgets</a>,
+    <a href="http://www.cse.chalmers.se/~hallgren/Alfa/Tutorial/GFplugin.html">natural-language interfaces</a>,
+    <a href="http://www.youtube.com/watch?v=1bfaYHWS6zU">dialogue systems</a>, and
+    <a href="lib/doc/synopsis/index.html">natural language resources</a>.
+    </p>
+
+    <p>
+    GF is <strong>open-source</strong>, licensed under <a href="LICENSE">GPL</a> (the program) and
+    <a href="LICENSE">LGPL</a> and <a href="LICENSE">BSD</a> (the libraries). It
+    is available for
+    </p>
+    <ul>
+    <li>Linux</li>
+    <li>macOS</li>
+    <li>Windows</li>
+    <li>Android mobile platform (via Java; runtime)</li>
+    <li>iOS mobile platform (iPhone, iPad)</li>
+    <li>via compilation to JavaScript, almost any platform that has a web browser (runtime)</li>
+    </ul>
+
+    <h2>Programming in GF</h2>
+    <p>
+    GF is easy to learn by following the <a href="doc/tutorial/gf-tutorial.html">tutorial</a>.
+    You can write your first translator in 15 minutes.
+    </p>
+    <p>
+    GF has an interactive command interpreter, as well as a batch compiler.
+    Grammars can be compiled to parser and translator code in many different
+    formats.  These components can then be embedded in applications written
+    in other programming languages. The formats currently supported are:
+    </p>
+    <ul>
+    <li>Haskell</li>
+    <li>Java, in particular the Android platform</li>
+    <li>JavaScript</li>
+    <li>Speech recognition: HTK/ATK, Nuance, JSGF</li>
+    </ul>
+
+    <p>
+    The GF programming language is high-level and advanced, featuring:
+    </p>
+    <ul>
+    <li>static type checking</li>
+    <li>higher-order functions</li>
+    <li>dependent types</li>
+    <li>pattern matching with data constructors and regular expressions</li>
+    <li>module system with multiple inheritance and parametrized modules</li>
+    </ul>
+
+    <h3>Getting help</h3>
+    <p>
+    If you need some help with GF, the first places to start are the <a href="doc/tutorial/gf-tutorial.html">Tutorial</a> and <a href="doc/gf-refman.html">Reference</a> pages.
+    The printed <a href="gf-book">book</a> contains all the material in the tutorial and some extra bits, and is the recommended reference for GF.
+    </p>
+
+    <p>
+    We run the IRC channel <strong><code>#gf</code></strong> on the Libera network, where you are welcome to look for help with small questions or just start a general discussion.
+    You can <a href="https://web.libera.chat/?channels=#gf">open a web chat</a>
+    or <a href="https://www.grammaticalframework.org/irc/?C=M;O=D">browse the channel logs</a>.
+    </p>
+    <p>
+    There is also a <a href="https://discord.gg/EvfUsjzmaz">GF server on Discord</a>.
+    </p>
+
+    <p>
+    For bug reports and feature requests, please create an issue in the
+    <a href="https://github.com/GrammaticalFramework/gf-core/issues">GF Core</a> or
+    <a href="https://github.com/GrammaticalFramework/gf-rgl/issues">RGL</a> repository.
+
+    For programming questions, consider asking them on <a href="https://stackoverflow.com/questions/tagged/gf">Stack Overflow with the <code>gf</code> tag</a>.
+    If you have a more general question to the community, we recommend you ask it on the <a href="http://groups.google.com/group/gf-dev">mailing list</a>.
+    </p>
+
+  </div>
+
+  <div class="col-md-6">
+    <h2>News</h2>
+    <dl class="row">
+      <dt class="col-sm-3 text-center text-nowrap">2023-01-24</dt>
+      <dd class="col-sm-9">
+        <a href="//school.grammaticalframework.org/2023/">8th GF Summer School</a>, in Tampere, Finland, 14 &ndash; 25 August 2023.
+      </dd>
+      <dt class="col-sm-3 text-center text-nowrap">2021-07-25</dt>
+      <dd class="col-sm-9">
+        <strong>GF 3.11 released.</strong>
+        <a href="download/release-3.11.html">Release notes</a>
+      </dd>
+      <dt class="col-sm-3 text-center text-nowrap">2021-05-05</dt>
+      <dd class="col-sm-9">
+        <a href="https://cloud.grammaticalframework.org/wordnet/">GF WordNet</a> now supports languages for which there are no other WordNets. New additions: Afrikaans, German, Korean, Maltese, Polish, Somali, Swahili.
+      </dd>
+      <dt class="col-sm-3 text-center text-nowrap">2020-09-29</dt>
+      <dd class="col-sm-9">
+        <a href="https://www.mitpressjournals.org/doi/pdf/10.1162/COLI_a_00378">Abstract Syntax as Interlingua</a>: Scaling Up the Grammatical Framework from Controlled Languages to Robust Pipelines. A paper in Computational Linguistics (2020) summarizing much of the development in GF in the past ten years.
+      </dd>
+    </dl>
+
+    <h2>Projects</h2>
+    <p>
+    GF was first created in 1998 at
+    <a href="http://www.xrce.xerox.com/">Xerox Research Centre Europe</a>,
+    Grenoble, in the project
+    Multilingual Document Authoring. At Xerox, it was used for prototypes including
+    a restaurant phrase book,
+    a database query system,
+    a formalization of an alarm system instructions with translations to 5 languages, and
+    an authoring system for medical drug descriptions.
+    </p>
+    <p>
+    Later projects using GF and involving third parties include, in chronological order:
+    </p>
+    <ul>
+    <li>
+      <a href="http://www.cse.chalmers.se/~hallgren/Alfa/Tutorial/GFplugin.html">GF-Alfa</a>:
+      natural language interface to formal proofs
+    </li>
+    <li>
+      <a href="http://efficient.citi.tudor.lu/index_noframe.html">Efficient</a>:
+      authoring tool for business models.
+    </li>
+    <li>
+      <a href="http://www.key-project.org/">GF-KeY</a>:
+      authoring and translation of software specifications
+    </li>
+    <li>
+      <a href="http://www.talk-project.org">TALK</a>:
+      multilingual and multimodal spoken dialogue systems
+    </li>
+    <li>
+      <a href="http://webalt.math.helsinki.fi/">WebALT</a>:
+      multilingual generation of mathematical exercises (commercial project)
+    </li>
+    <li>
+      <a href="http://spraakbanken.gu.se/sal/">SALDO</a>:
+      Swedish morphological dictionary based on rules developed for GF and
+      <a href="http://www.cse.chalmers.se/alumni/markus/FM/">Functional Morphology</a>
+    </li>
+    <li>
+      <a href="//www.molto-project.eu">MOLTO</a>:
+      multilingual online translation
+    </li>
+    <li>
+      <a href="//remu.grammaticalframework.org">REMU</a>:
+      reliable multilingual digital communication
+    </li>
+    </ul>
+    <!-- <p>
+    Here is a <a
+    href="http://videos.xrce.xerox.com/index.php/videos/index/618">talk
+    about GF at XRCE</a>,
+    14 years later.
+    </p> -->
+
+    <p>
+    Academically, GF has been used in at least ten PhD theses and resulted
+    in more than a hundred scientific publications.
+     <!-- (see <a href="doc/gf-bibliography.html">GF publication list</a>). -->
+    </p>
+
+    <h2>Libraries</h2>
+    <p>
+    Libraries are at the heart of modern software engineering. In natural language
+    applications, libraries are a way to cope with thousands of details involved in
+    syntax, lexicon, and inflection. The
+    <a href="lib/doc/synopsis/index.html">GF resource grammar library</a> (RGL) has
+    support for an increasing number of languages, currently including
+    Afrikaans,
+    Amharic (partial),
+    Arabic (partial),
+    Basque (partial),
+    Bulgarian,
+    Catalan,
+    Chinese,
+    Czech (partial),
+    Danish,
+    Dutch,
+    English,
+    Estonian,
+    Finnish,
+    French,
+    German,
+    Greek ancient (partial),
+    Greek modern,
+    Hebrew (fragments),
+    Hindi,
+    Hungarian (partial),
+    Interlingua,
+    Italian,
+    Japanese,
+    Korean (partial),
+    Latin (partial),
+    Latvian,
+    Maltese,
+    Mongolian,
+    Nepali,
+    Norwegian bokmål,
+    Norwegian nynorsk,
+    Persian,
+    Polish,
+    Punjabi,
+    Romanian,
+    Russian,
+    Sindhi,
+    Slovak (partial),
+    Slovene (partial),
+    Somali (partial),
+    Spanish,
+    Swahili (fragments),
+    Swedish,
+    Thai,
+    Turkish (fragments),
+    and
+    Urdu.
+    </p>
+
+    <p>
+    Adding a language to the resource library takes 3 to 9
+    months - contributions
+    are welcome! You can start with the <a href="lib/doc/rgl-tutorial/index.html">resource grammarian's tutorial</a>.
+    </p>
+
+  </div><!-- .col-6 -->
+
+</div><!-- .row -->
+
+</div><!-- .container -->
+
+<footer class="bg-light mt-5 py-4">
+  <div class="container mb-3">
+    <div class="text-center text-muted">
+      <img style="height:50px; filter: opacity(.5) grayscale(1);" class="mb-3" src="doc/Logos/gf0.svg" alt="GF Logo"><br>
+      Grammatical Framework is free and open source,<br>
+      with some support from <a href="https://www.digitalgrammars.com/">Digital Grammars AB</a>.
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-7811807-3");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+</html>

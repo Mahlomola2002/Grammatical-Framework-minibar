@@ -1,0 +1,48 @@
+#!/usr/bin/make -f
+
+%:
+	+dh $@
+
+#dh_shlibdeps has a problem finding which package some of the Haskell
+#libraries come from, even though dpkg-query -S has no problem finding them.
+#But the gf executable is statically linked against the Haskell libraries, so
+#it will work even if these shared libraries aren't installed. But there will
+#be a problem if other shared libraries are missing (.e.g. libtinfo, libgmp),
+#so we need a better solution than simply ignoring all dependency problems...
+#See also http://stackoverflow.com/questions/11238134/dpkg-shlibdeps-error-no-dependency-information-found-for
+override_dh_shlibdeps:
+	dh_shlibdeps --dpkg-shlibdeps-params=--ignore-missing-info
+
+override_dh_auto_configure:
+	cd src/runtime/c && bash setup.sh configure --prefix=/usr
+	cd src/runtime/c && bash setup.sh build
+	cabal v1-update
+	cabal v1-install --only-dependencies
+	cabal v1-configure --prefix=/usr -fserver -fc-runtime --extra-lib-dirs=$(CURDIR)/src/runtime/c/.libs --extra-include-dirs=$(CURDIR)/src/runtime/c
+
+SET_LDL=LD_LIBRARY_PATH=$$LD_LIBRARY_PATH:$(CURDIR)/src/runtime/c/.libs
+
+override_dh_auto_build:
+	cd src/runtime/python && EXTRA_INCLUDE_DIRS=$(CURDIR)/src/runtime/c EXTRA_LIB_DIRS=$(CURDIR)/src/runtime/c/.libs python setup.py build
+	cd src/runtime/java && make CFLAGS="-I$(CURDIR)/src/runtime/c -L$(CURDIR)/src/runtime/c/.libs" INSTALL_PATH=/usr
+	echo $(SET_LDL)
+	-$(SET_LDL) cabal v1-build
+
+override_dh_auto_install:
+	$(SET_LDL) cabal v1-copy --destdir=$(CURDIR)/debian/gf
+	cd src/runtime/c && bash setup.sh copy prefix=$(CURDIR)/debian/gf/usr
+	cd src/runtime/python && python setup.py install --prefix=$(CURDIR)/debian/gf/usr
+	cd src/runtime/java && make INSTALL_PATH=$(CURDIR)/debian/gf/usr install
+	D="`find debian/gf -name site-packages`" && [ -n "$$D" ] && cd $$D && cd .. && mv site-packages dist-packages
+
+override_dh_auto_clean:
+	rm -fr dist/build
+	-cd src/runtime/python && rm -fr build
+	-cd src/runtime/java && make clean
+	-cd src/runtime/c && make clean
+
+override_dh_auto_test:
+ifneq (nocheck,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
+	true
+#	cabal test
+endif
