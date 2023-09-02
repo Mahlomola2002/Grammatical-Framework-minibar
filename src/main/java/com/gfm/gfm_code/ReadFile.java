@@ -7,6 +7,7 @@ import java.util.*;
 public class ReadFile {
     String file;
     PGF pgf=null;
+
     HashSet<String> words=null;
     String startCat;
     Map<String,Concr> langauges;

@@ -12,6 +12,7 @@ import java.io.IOException;
  * @author Mahlomola Mohlomi
  */
 public class HomeScreen extends Application {
+
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HomeScreen.class.getResource("minibar-view.fxml"));

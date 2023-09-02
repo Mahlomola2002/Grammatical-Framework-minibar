@@ -124,6 +124,7 @@ public class MinibarController {
         for(String p: PathList){
             String[] name = p.split("\\\\");
             grammarToDisplay.add(name[name.length-1]);
+            String g="";
 
 
         }
